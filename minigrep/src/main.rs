@@ -1,4 +1,5 @@
 use std::env;
+use std::fs;
 
 // $ cargo run searchstring example-filename.txt
 
@@ -11,4 +12,8 @@ fn main() {
 
     println!("Searching for {}", query);
     println!("In file {}", filename);
+
+    let file_ontent = fs::read_to_string(filename).expect("Something went wrong reading the file");
+
+    println!("With text:\n{}", file_ontent);
 }
