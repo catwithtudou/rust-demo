@@ -24,16 +24,47 @@ async fn get_two_sites_async() {
 
 
 async fn download_async(url: &str) {
-    println!("{}", url)
+    println!("{}", url);
 }
 
 fn download(site: &str) {
-    println!("{}", site)
+    println!("{}", site);
+}
+
+
+async fn hello_world() {
+    println!("hello_world");
+}
+
+async fn learn_song() {
+    println!("learn_song");
+}
+
+async fn sing_song() {
+    println!("sing_song");
+}
+
+async fn dance() {
+    println!("dance");
+}
+
+async fn learn_and_sing() {
+    let _song = learn_song().await;
+    sing_song().await;
+}
+
+async fn block_main() {
+    let f1 = learn_and_sing();
+    let f2 = dance();
+
+    futures::join!(f1,f2);
 }
 
 
 #[cfg(test)]
 mod chapter_one_test {
+    use futures::executor::block_on;
+
     use super::*;
 
     #[test]
@@ -46,6 +77,17 @@ mod chapter_one_test {
         let _ = async {
             get_two_sites_async().await;
         };
+    }
+
+    #[test]
+    fn test_hello_world() {
+        let future = hello_world();
+        block_on(future);
+    }
+
+    #[test]
+    fn test_block_main() {
+        block_on(block_main());
     }
 }
 
