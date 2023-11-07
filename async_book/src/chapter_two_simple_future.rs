@@ -11,13 +11,14 @@ enum Poll<T> {
 pub struct Socket {}
 
 impl Socket {
-    fn has_data_to_read(&mut self) {}
+    fn has_data_to_read(&mut self) -> bool { true }
     fn read_buf(&mut self) -> Vec<u8> { Vec::new() }
+    fn set_readable_callback(&mut self, _wake: fn()) {}
 }
 
 
 pub struct SocketRead<'a> {
-    socket: &'a Socket,
+    socket: &'a mut Socket,
 }
 
 
