@@ -46,7 +46,7 @@ impl TimeFuture {
 
 
 #[cfg(test)]
-mod chapter_two_time_future_test {
+mod time_future_test {
     use futures::executor::block_on;
 
     use super::*;
