@@ -1,13 +1,10 @@
-// `pin_utils` 可以在crates.io中找到
-
-
 #[cfg(test)]
 mod pin_utils_test {
     use std::future::Future;
 
     use pin_utils::pin_mut;
 
-    fn execute_unpin_future(x: impl Future<Output=()> + Unpin) { /* ... */ }
+    fn execute_unpin_future(_x: impl Future<Output=()> + Unpin) { /* ... */ }
     // fn execute_unpin_future(x: Pin<Box<dyn Future<Output=()>>>) { /* ... */ }
 
 
