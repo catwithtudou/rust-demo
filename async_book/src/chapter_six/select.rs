@@ -37,6 +37,7 @@ async fn count() {
     println!("{}", total);
     assert_eq!(total, 10);
 }
+#[allow(dead_code)]
 
 async fn add_two_streams(
     mut s1: impl Stream<Item=u8> + FusedStream + Unpin,
@@ -57,11 +58,11 @@ async fn add_two_streams(
 
     total
 }
-
+#[allow(dead_code)]
 async fn get_new_num() -> u8 { /* ... */ 5 }
-
+#[allow(dead_code)]
 async fn run_on_new_num(_: u8) { /* ... */ }
-
+#[allow(dead_code)]
 async fn run_loop(
     mut interval_timer: impl Stream<Item=()> + FusedStream + Unpin,
     starting_num: u8,
@@ -88,6 +89,7 @@ async fn run_loop(
 
 async fn run_on_new_num_push(_: u8) -> u8 { /* ... */ 5 }
 
+#[allow(dead_code)]
 async fn run_loop_future_unordered(
     mut interval_timer: impl Stream<Item=()> + FusedStream + Unpin,
     starting_num: u8,
